@@ -1,3 +1,11 @@
+<h2>Angular Heroes</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+  </li>
+</ul>
+
 <h2>{{ hero.name | uppercase }} Details</h2>
 <div><span>id: </span>{{ hero.id }}</div>
 <div>
@@ -5,3 +13,14 @@
   <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
   <input id="name" [(ngModel)]="hero.name" placeholder="name" />
 </div>
+
+<!-- 
+  The *ngFor is Angular's repeater directive. 
+  It repeats the host element for each element in a list. 
+  In other words, it is similar to React element.map() in JSX. 
+-->
+
+<!-- 
+  (click)="onSelect(hero)" is an example of Angular's event binding syntax.abs
+  When the <li> is clicked, Angular executes the onSelect(hero) expression.
+-->

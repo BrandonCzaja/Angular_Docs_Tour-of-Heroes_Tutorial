@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../hero'; // Hero Interface
+import { HEROES } from '../../mock-heroes'; // Import Mock Hero Data
 
 // Decorator function that specifies the Angular metadata for the component.
 @Component({
@@ -8,11 +9,19 @@ import { Hero } from '../../hero'; // Hero Interface
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
-  // Hero property
+  selectedHero?: Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+
+  // Hero Component property
   hero: Hero = {
     id: 1,
     name: 'Windstorm',
   };
+
+  // Heroes Component Property
+  heroes = HEROES;
 
   constructor() {}
 
