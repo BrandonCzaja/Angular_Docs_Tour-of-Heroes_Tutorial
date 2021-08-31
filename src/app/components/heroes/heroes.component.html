@@ -1,4 +1,5 @@
 <h2>My Heroes</h2>
+
 <ul class="heroes">
   <li
     *ngFor="let hero of heroes"
@@ -8,6 +9,8 @@
     <span class="badge">{{ hero.id }}</span> {{ hero.name }}
   </li>
 </ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 <!-- 
   The *ngFor is Angular's repeater directive. 
@@ -23,3 +26,8 @@
 <!-- 
     [(ngModel)] is Angular's two-way data binding syntax. 
 -->
+
+<!-- 
+  <app-hero-detail> is a child of the HeroesComponent. 
+  The [hero]="selectedHero" binds the two together - It is a one-way data binding
+ -->
