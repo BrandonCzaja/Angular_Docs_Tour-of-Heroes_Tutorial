@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../hero'; // Hero Interface
-import { HEROES } from '../../mock-heroes'; // Import Mock Hero Data
+import { HeroService } from '../../services/hero.service';
 
 // Decorator function that specifies the Angular metadata for the component.
 @Component({
@@ -10,7 +10,7 @@ import { HEROES } from '../../mock-heroes'; // Import Mock Hero Data
 })
 export class HeroesComponent implements OnInit {
   // Heroes Component Property
-  heroes = HEROES;
+  heroes: Hero[] = [];
   selectedHero?: Hero;
 
   // Hero Component property
@@ -19,13 +19,20 @@ export class HeroesComponent implements OnInit {
     name: 'Windstorm',
   };
 
-  constructor() {}
+  constructor(private heroService: HeroService) {}
 
   // Lifecycle hook. Angular calls ngOnInit() shortly after creating a component. It's a good place to put initialization logic. The void{} means that it doesn't return anything.
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getHeroes();
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  // Subscribe is kind of like a promise. It is needed for when HTTP requests are made
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 }
 
