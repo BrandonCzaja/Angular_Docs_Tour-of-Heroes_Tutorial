@@ -17,6 +17,13 @@ export class HeroService {
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
   }
+
+  // Get an individual hero by id
+  getHero(id: number): Observable<Hero> {
+    const hero = HEROES.find((h) => h.id === id)!;
+    this.messageService.add(`HeroService: fetched hero id: ${id}`);
+    return of(hero);
+  }
 }
 
 // The Injectable symbol and @Injectable() decorator mark the class as one that participates in the dependency injection system
