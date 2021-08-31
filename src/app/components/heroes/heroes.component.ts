@@ -9,10 +9,9 @@ import { HEROES } from '../../mock-heroes'; // Import Mock Hero Data
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
+  // Heroes Component Property
+  heroes = HEROES;
   selectedHero?: Hero;
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
 
   // Hero Component property
   hero: Hero = {
@@ -20,13 +19,14 @@ export class HeroesComponent implements OnInit {
     name: 'Windstorm',
   };
 
-  // Heroes Component Property
-  heroes = HEROES;
-
   constructor() {}
 
   // Lifecycle hook. Angular calls ngOnInit() shortly after creating a component. It's a good place to put initialization logic. The void{} means that it doesn't return anything.
   ngOnInit(): void {}
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
 
 /*
