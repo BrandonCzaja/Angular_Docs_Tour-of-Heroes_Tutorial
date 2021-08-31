@@ -4,10 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms'; //  NgModel lives here
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './components/heroes/heroes.component'; // Imported automatically by the Angular CLI
+import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component'; // Imported automatically by the Angular CLI
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent],
+  declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
